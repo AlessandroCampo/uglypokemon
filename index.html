@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Pokèmon</title>
+</head>
+
+<body>
+
+    <div id="container">
+        <canvas id="htmlcanvas"> </canvas>
+        <div id="text-container">
+            <img src="" alt="" id="portrait">
+            <div id="textbox">
+            </div>
+        </div>
+        <div id="squad-container" style="display: none;">
+            <div id="bench-container">
+                <h2>
+                    YOUR BENCH
+                </h2>
+                <div id="slot-container">
+                    <div id="bench-slot-0">
+
+                    </div>
+                    <div id="bench-slot-1">
+
+
+
+                    </div>
+                    <div id="bench-slot-2">
+
+                    </div>
+                    <div id="bench-slot-3">
+                    </div>
+                </div>
+            </div>
+            <div id="active-container">
+                <h2>
+                    YOUR ACTIVE
+                </h2>
+                <div id="active-slot">
+
+                </div>
+
+            </div>
+
+
+        </div>
+        <div id="menu" style="display: none;">
+            <ul>
+                <li> <button id="backpack-button">
+                        BACKPACK
+                    </button></li>
+                <li> <button id="team-button">
+                        TEAM
+                    </button></li>
+                <li> <button id="close-button">
+                        CLOSE
+                    </button></li>
+            </ul>
+        </div>
+
+        <div id="battle-HUD">
+            <div id="myPokeBox">
+                <img id="myPoke" src="./assets/img/charmender-back.gif" alt="">
+            </div>
+            <div id="enemyPokeBox">
+                <img id="enemyPoke" src="./assets/img/rattata-front.gif" alt="" class="big">
+            </div>
+            <div id="battle-interface">
+                <div id="battle-dialogue">
+
+                </div>
+                <div id="battle-options">
+                    <div id="battle-options-text">
+                        What's your next move?
+                    </div>
+                    <div id="battle-options-buttons">
+                        <button id="fight-button">
+                            FIGHT
+                        </button>
+                        <button id="run-button">
+                            RUN
+                        </button>
+                        <button id="switch-button">
+                            SWITCH POKEMON
+                        </button>
+                        <button id="tool-button">
+                            ATTEMPT CATCH
+                        </button>
+                    </div>
+
+                </div>
+                <div id="bench">
+                    <div id="pokemon-1">
+                        <span>
+                            -
+                        </span>
+                        <img src="" alt="">
+                    </div>
+                    <div id="pokemon-2">
+                        <span>
+                            -
+                        </span>
+                        <img src="" alt="">
+                    </div>
+                    <div id="pokemon-3">
+                        <span>
+                            -
+                        </span>
+                        <img src="" alt="">
+                    </div>
+                    <div id="pokemon-4">
+                        <span>
+                            -
+                        </span>
+                        <img src="" alt="">
+                    </div>
+                </div>
+
+                <div id="attacks">
+                    <button id="move1">
+                        -
+                    </button>
+                    <button id="move2">
+                        -
+                    </button>
+                    <button id="move3">
+                        -
+                    </button>
+                    <button id="move4">
+                        -
+                    </button>
+                </div>
+                <div id="attack-info">
+                    <span id="attack-type">
+                        <span>
+                            FIRE
+                        </span>
+                        <img src="./assets/img/Fire.png" alt="">
+                    </span>
+                    <span id="attack-PP">
+                        PP: 20\20
+                    </span>
+                </div>
+            </div>
+            <div id="enemy-bar">
+                <div class="info-container">
+                    <div>
+                        <span id="enemy-name">Rattata</span>
+                        <span id="enemy-gender"><i class="fa-solid fa-mars"></i></span>
+                    </div>
+                    <span id="enemy-level">LV.8</span>
+                </div>
+
+
+                <div class="progress">
+                    <span class="status">BRN</span>
+                    <span>HP</span>
+                    <progress id="enemy-hp" value="100" max="100"></progress>
+                </div>
+                <div id="enemy-hp-num">30/30</div>
+            </div>
+
+
+            <div id="my-bar">
+                <div class="info-container">
+                    <div>
+                        <span id="my-name">Charmander</span>
+                        <span id="my-gender"><i class="fa-solid fa-mars"></i></span>
+                    </div>
+                    <span id="my-level">LV.5</span>
+                </div>
+                <div class="progress">
+                    <span class="status">BRN</span>
+                    <span>HP</span>
+                    <progress id="my-hp" value="100" max="100"> </progress>
+
+                </div>
+                <div id="my-hp-num">30/30</div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
+        integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="collisions.js"></script>
+    <script src="battlezones.js"></script>
+    <script src="attacks.js"></script>
+    <script src="pokemon.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
